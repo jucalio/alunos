@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Alunos</title>
+        <meta name="viewport" content="width=device-width"/>
+    </h:head>
+    <h:body>
+
+        <p:layout fullPage="true">
+            <p:layoutUnit position="center">
+                <p:messages  showDetail="false" autoUpdate="true" closable="true" />
+
+                <h:form id="form" >
+
+
+
+
+                    <p:panel style="width:610px;height:400px; position: relative; left: 400px; text-align: center; border-color: transparent; background-color: transparent">  
+                        <p:dataTable id="db" var="aluno"  value="#{alunosController.alunosDataModel}"
+                                     selection="#{alunosController.aluno}"
+                                     style="text-align: center" 
+                                     editable="true"
+                                     selectionMode="single"
+                                     paginator="true" rows="5"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowKey="#{aluno.idAluno}"
+                                     lazy="true"
+                                     >  
+                            
+
+                            <f:facet name="header">  
+                                Lista de alunos
+                            </f:facet>  
+
+                            <p:column  headerText="id" style="width: 24%">
+                                <f:facet name="header">
+                                    <h:outputText value="id"/>
+                                </f:facet>
+                                <h:outputText value="#{aluno.idAluno}"/>
+                            </p:column>
+
+                            <p:column  headerText="nome" style="width: 24%">  
+                                <f:facet name="header">
+                                    <h:outputText value="Nome"/>
+                                </f:facet>
+                                <h:outputText value="#{aluno.pessoasByIdPessoa.nomePessoa}"/>
+                            </p:column> 
+
+                            
+
+
+                            
+
+
+
+                        </p:dataTable> 
+                    </p:panel>
+
+
+
+                   
+
+
+                </h:form>
+            </p:layoutUnit>
+
+
+        </p:layout>
+
+
+
+
+
+    </h:body>
+</html>
